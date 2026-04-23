@@ -1,0 +1,1341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Today's Focus · Scope · Whitecrow × Nine Advisory</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Raleway:wght@200;300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue:    #24135F;
+    --blue-2:  #2E1A75;
+    --green:   #00B388;
+    --green-d: #00916E;
+    --grey:    #D9D9D6;
+    --gold:    #FFB81C;
+    --orange:  #DC8633;
+    --red:     #FF5C39;
+    --ink:     #1A0F4A;
+    --ink-2:   #3A2E6E;
+    --ink-3:   #6A6488;
+    --paper:   #FAFAFB;
+    --rule:    #E7E7E5;
+    --rule-2:  #F2F2F0;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Assistant', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Raleway', ui-sans-serif, system-ui;
+    letter-spacing: -0.01em;
+    color: var(--blue);
+    margin: 0;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+  }
+  @media (max-width: 720px) { .page { padding: 32px 20px 64px; } }
+
+  .top-meta {
+    display: flex; gap: 8px; align-items: center;
+    font-family: 'Raleway', ui-sans-serif;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 24px;
+  }
+  .gbar {
+    display: inline-block; width: 28px; height: 3px;
+    background: var(--green); border-radius: 2px;
+  }
+  h1 {
+    font-weight: 300; font-size: 46px; line-height: 1.05;
+    margin-bottom: 18px; letter-spacing: -0.02em;
+  }
+  h1 .accent { color: var(--green-d); font-weight: 600; }
+  .lede {
+    font-size: 18px; line-height: 1.6; color: var(--ink-2);
+    max-width: 720px; margin: 0 0 28px;
+  }
+  .lede strong { color: var(--blue); font-weight: 600; }
+
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 40px;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pill.green { background: rgba(0,179,136,0.1); color: var(--green-d); border: 1px solid rgba(0,179,136,0.2); }
+  .pill.blue  { background: rgba(36,19,95,0.06); color: var(--blue); border: 1px solid rgba(36,19,95,0.12); }
+  .pill.gold  { background: rgba(255,184,28,0.12); color: var(--orange); border: 1px solid rgba(255,184,28,0.3); }
+
+  section { margin-bottom: 56px; }
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 12px;
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green-d); font-weight: 600;
+  }
+  h2 {
+    font-size: 28px; font-weight: 600;
+    margin-bottom: 18px; line-height: 1.2;
+  }
+  h2 .soft { color: var(--ink-3); font-weight: 300; }
+  h3 {
+    font-size: 18px; font-weight: 600;
+    margin: 28px 0 10px; line-height: 1.3;
+  }
+  p { margin: 0 0 14px; color: var(--ink-2); }
+  p strong { color: var(--blue); font-weight: 600; }
+  p .mono { font-size: 14px; color: var(--ink); }
+  ul.prose { padding-left: 22px; color: var(--ink-2); margin: 0 0 14px; }
+  ul.prose li { padding: 4px 0; }
+  ul.prose strong { color: var(--blue); font-weight: 600; }
+
+  /* Pull-quote stat — used inline within prose */
+  .pull {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 26px;
+    margin: 18px 0 22px;
+  }
+  .pull .nums {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 300; font-size: 34px;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .pull .nums strong { color: var(--green); font-weight: 600; }
+  .pull .nums .vs { color: rgba(255,255,255,0.5); font-size: 22px; margin: 0 10px; }
+  .pull .caption {
+    font-size: 13px; color: rgba(255,255,255,0.85);
+  }
+
+  /* Mockup */
+  .mockup-frame {
+    background: linear-gradient(180deg, #fff 0%, #FCFCFB 100%);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  .mockup-chrome {
+    display: flex; align-items: center; gap: 8px;
+    padding: 0 6px 12px;
+    border-bottom: 1px solid var(--rule-2);
+    margin-bottom: 14px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); }
+  .chrome-title {
+    font-size: 11px; color: var(--ink-3);
+    font-family: 'JetBrains Mono', monospace;
+    margin-left: 6px;
+  }
+  .mockup {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 22px 24px;
+    box-shadow: 0 1px 2px rgba(36,19,95,0.04), 0 8px 24px rgba(36,19,95,0.05);
+  }
+  .focus-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .focus-title {
+    font-family: 'Raleway', ui-sans-serif;
+    font-size: 18px; font-weight: 600; color: var(--blue);
+  }
+  .focus-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-3);
+  }
+  .focus-sub {
+    font-size: 13px; color: var(--ink-3);
+    margin-bottom: 18px;
+  }
+  .focus-list { list-style: none; padding: 0; margin: 0 0 16px; }
+  .focus-list li {
+    display: grid; grid-template-columns: 14px 1fr;
+    column-gap: 12px; padding: 14px 0;
+    border-bottom: 1px solid var(--rule-2);
+    align-items: start;
+  }
+  .focus-list li:last-child { border-bottom: none; }
+  .status-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    margin-top: 7px;
+  }
+  .status-dot.red    { background: var(--red); box-shadow: 0 0 0 3px rgba(255,92,57,0.12); }
+  .status-dot.amber  { background: var(--gold); box-shadow: 0 0 0 3px rgba(255,184,28,0.12); }
+  .status-dot.green  { background: var(--green); box-shadow: 0 0 0 3px rgba(0,179,136,0.12); }
+  .item-title {
+    font-size: 14px; color: var(--blue); font-weight: 600;
+    line-height: 1.4;
+  }
+  .item-context {
+    font-size: 13px; color: var(--ink-2);
+    margin-top: 3px; line-height: 1.5;
+  }
+  .item-context .src {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-3);
+    margin-left: 6px;
+  }
+  .focus-footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 12px; margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  /* Pipeline */
+  .pipeline {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .pipe-row {
+    display: grid;
+    grid-template-columns: 56px 1fr 100px;
+    column-gap: 16px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--rule-2);
+    align-items: center;
+  }
+  .pipe-row:last-child { border-bottom: none; }
+  .pipe-row.llm {
+    background: rgba(0,179,136,0.05);
+    border-top: 2px solid var(--green);
+    border-bottom: none;
+  }
+  .pipe-num {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--blue); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600; font-size: 13px;
+  }
+  .pipe-row.llm .pipe-num { background: var(--green); }
+  .pipe-title {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 600; color: var(--blue); font-size: 15px;
+  }
+  .pipe-body {
+    font-size: 13px; color: var(--ink-2);
+    margin-top: 2px; line-height: 1.45;
+  }
+  .pipe-stat {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--green-d); font-weight: 600;
+  }
+  .pipe-stat .arrow { color: var(--ink-3); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  th {
+    text-align: left; font-family: 'Raleway', ui-sans-serif;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-3);
+    padding: 12px 16px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule-2);
+    color: var(--ink-2);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:last-child td { border-bottom: none; }
+  td .mono { font-size: 12px; color: var(--ink); }
+  td strong { color: var(--blue); font-weight: 600; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .tag.live { background: rgba(0,179,136,0.12); color: var(--green-d); }
+  .tag.new  { background: rgba(0,118,168,0.12); color: #0076A8; }
+
+  /* Block list */
+  .blocks { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .block {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .block-num {
+    display: inline-block;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--blue); color: #fff;
+    font-size: 11px; font-weight: 600;
+    text-align: center; line-height: 22px;
+    margin-right: 10px;
+    vertical-align: text-bottom;
+  }
+  .block-title {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 600; color: var(--blue); font-size: 15px;
+  }
+  .block-body {
+    font-size: 14px; color: var(--ink-2);
+    margin-top: 6px; line-height: 1.5;
+    padding-left: 32px;
+  }
+
+  .punt {
+    background: var(--paper);
+    border: 1px dashed var(--rule);
+    border-radius: 10px;
+    padding: 18px 22px;
+  }
+  .punt h3 {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); margin: 0 0 12px;
+  }
+  .punt ul { padding-left: 18px; margin: 0; color: var(--ink-2); font-size: 14px; }
+  .punt li { padding: 4px 0; }
+  .punt strong { color: var(--blue); }
+
+  .risk {
+    background: rgba(255,92,57,0.04);
+    border-left: 3px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 22px;
+    margin-bottom: 8px;
+  }
+  .risk h3 {
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--red); margin: 0 0 6px;
+  }
+  .risk p { margin-bottom: 0; font-size: 14px; }
+  .risk strong { color: var(--blue); }
+
+  .totals {
+    background: var(--blue);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .totals .label {
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .totals .value {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 300; font-size: 22px;
+    color: #fff;
+  }
+  .totals .value strong {
+    font-weight: 600; color: var(--green);
+  }
+
+  .note {
+    font-size: 13px; color: var(--ink-3);
+    margin-top: 10px; line-height: 1.6;
+  }
+  .note strong { color: var(--blue); }
+
+  footer {
+    margin-top: 64px; padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px; color: var(--ink-3);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  /* NACopilot greeting — chat bubble at top of mockup */
+  .nacopilot {
+    background: linear-gradient(180deg, rgba(36,19,95,0.04) 0%, rgba(36,19,95,0.02) 100%);
+    border: 1px solid rgba(36,19,95,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 14px; line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .nacopilot .who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--blue); font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-right: 6px;
+  }
+  .nacopilot strong { color: var(--blue); font-weight: 600; }
+
+  /* Urgent callout — Notion blockquote style */
+  .urgent {
+    border-left: 3px solid var(--red);
+    background: rgba(255,92,57,0.04);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 16px;
+    margin-bottom: 18px;
+    font-size: 14px; color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .urgent strong { color: var(--blue); font-weight: 600; }
+
+  /* Checkbox-style focus list (overrides earlier .focus-list grid) */
+  .focus-list.todo li {
+    display: grid;
+    grid-template-columns: 18px 16px 1fr;
+    column-gap: 10px;
+    padding: 11px 0;
+    align-items: start;
+  }
+  .focus-list.todo .check {
+    width: 14px; height: 14px;
+    border: 1.5px solid var(--ink-3);
+    border-radius: 3px;
+    margin-top: 4px;
+    background: #fff;
+  }
+  .focus-list.todo .check.done {
+    background: var(--green-d); border-color: var(--green-d);
+    position: relative;
+  }
+  .focus-list.todo .check.done::after {
+    content: ''; position: absolute;
+    left: 3px; top: 0px;
+    width: 5px; height: 9px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .focus-list.todo .pri {
+    font-size: 13px;
+    margin-top: 3px;
+    line-height: 1;
+  }
+  .focus-list.todo li.done .item-title { text-decoration: line-through; color: var(--ink-3); font-weight: 400; }
+  .focus-list.todo li.done .item-context { color: var(--ink-3); }
+  .focus-list.todo .item-rel {
+    font-size: 12px; color: var(--green-d);
+    margin-top: 4px; line-height: 1.5;
+    font-style: italic;
+  }
+  .focus-list.todo .item-rel::before {
+    content: '→ '; color: var(--green-d); font-style: normal;
+  }
+
+  /* Morning-run timeline */
+  .clock {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .clock h4 {
+    font-size: 12px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3); margin: 0 0 14px;
+  }
+  .clock-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    column-gap: 16px;
+    padding: 6px 0;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule-2);
+  }
+  .clock-row:last-child { border-bottom: none; }
+  .clock-row .t {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--green-d); font-weight: 600;
+  }
+  .clock-row .what {
+    font-size: 13px; color: var(--ink-2); line-height: 1.5;
+  }
+  .clock-row .what strong { color: var(--blue); font-weight: 600; }
+
+  /* Phase cards (build plan) */
+  .phases { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .phase {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    column-gap: 20px;
+  }
+  @media (max-width: 720px) { .phase { grid-template-columns: 1fr; row-gap: 10px; } }
+  .phase.checkpoint {
+    border-left: 3px solid var(--gold);
+  }
+  .phase-tag {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 600; color: var(--blue);
+    font-size: 13px;
+  }
+  .phase-tag .days {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+  .phase-body { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  .phase-body .lbl {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--green-d);
+    margin-right: 8px;
+  }
+  .phase-body p { margin: 0 0 6px; }
+  .phase-body p:last-child { margin-bottom: 0; }
+  .phase-body strong { color: var(--blue); }
+  .phase-body .ships {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed var(--rule);
+    font-size: 13px;
+  }
+  .phase-body .checkpoint-line {
+    margin-top: 8px;
+    background: rgba(255,184,28,0.08);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .phase-body .checkpoint-line strong { color: var(--orange); }
+
+  /* Connector table — same as table but slightly more compact */
+  .integration-note {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .integration-note strong { color: var(--blue); font-weight: 600; }
+  .integration-note .mono { font-size: 13px; }
+
+  /* Step-by-step walkthrough */
+  .steps {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    column-gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--rule-2);
+    align-items: start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step.phase-marker {
+    background: var(--paper);
+    grid-template-columns: 1fr;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step.phase-marker .phase-label {
+    font-family: 'Raleway', ui-sans-serif;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--green-d);
+  }
+  .step .ts {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--green-d); font-weight: 600;
+    padding-top: 2px;
+  }
+  .step .body {
+    font-size: 13.5px; color: var(--ink-2); line-height: 1.55;
+  }
+  .step .body .h {
+    font-family: 'Raleway', ui-sans-serif;
+    font-weight: 600; color: var(--blue);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .step .body p { margin: 4px 0 0; }
+  .step .body strong { color: var(--blue); }
+  .step .body .api {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    background: var(--rule-2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  @media print {
+    body { background: #fff; }
+    /* small units that should stay intact */
+    .pipe-row, .step, .focus-list li, .phase, .risk, .pull, .urgent, .block, .punt li, .integration-note { break-inside: avoid; }
+    /* larger containers: let them flow naturally across pages */
+    .mockup, .mockup-frame, .pipeline, .steps, table, .punt { break-inside: auto; }
+    /* keep headings with what follows */
+    h2, h3 { break-after: avoid; }
+    .section-eyebrow { break-after: avoid; }
+    .focus-head { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="top-meta">
+    <span class="gbar"></span>
+    <span>Whitecrow × Nine Advisory</span>
+    <span style="opacity:0.4;">·</span>
+    <span>Today's Focus · Scope v18 · 23 Apr 2026</span>
+  </div>
+
+  <h1>Today's Focus.</h1>
+
+  <ul class="prose" style="font-size:17px; max-width:720px; margin-bottom:28px;">
+    <li><strong>What:</strong> a "🎯 Today's Focus" block on Ryan's Notion workspace.</li>
+    <li><strong>When:</strong> refreshed twice daily — 8am and 4pm AEST.</li>
+    <li><strong>Shows:</strong> the 3–5 things that matter today.</li>
+    <li><strong>Reads:</strong> live Asana (10 projects) · today's email triage output · open commitments.</li>
+    <li><strong>This doc:</strong> what the data showed · what the playbook does · what's needed to ship.</li>
+  </ul>
+
+  <div class="pills">
+    <span class="pill green">Ships week 2</span>
+    <span class="pill blue">~40 hours engineering</span>
+    <span class="pill gold">No new infrastructure</span>
+  </div>
+
+  <!-- ============== SECTION 1 — THE FINDING ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">01 · Finding</span>
+    </div>
+    <h2>Ryan's work is in subtask names, not assignee fields.</h2>
+
+    <ul class="prose">
+      <li>Tested <span class="mono">assignee = Ryan</span> on live data → <strong>returned 2 tasks.</strong></li>
+      <li>Ryan touches dozens of tasks/week. Filter is broken.</li>
+      <li>Assignee field used on <strong>parents 61% of the time, subtasks 1%</strong> (13 of 1,022).</li>
+    </ul>
+
+    <div class="pull">
+      <div class="nums"><strong>61%</strong><span class="vs">vs</span><strong>1%</strong></div>
+      <div class="caption">Parent vs subtask assignee fill rate. 9 of 10 projects sit at 0–4% on subtasks.</div>
+    </div>
+
+    <ul class="prose">
+      <li>Offshore team writes the owner into the subtask name: <span class="mono">↳ Ryan to review</span>, <span class="mono">↳ Sailesh to approve</span>, <span class="mono">↳ Surya to send to client</span>.</li>
+      <li>To them, the name <em>is</em> the assignment. Assignee field stays empty.</li>
+      <li><strong>Assignee filter → 2 items. Assignee + subtask-name pattern → 10 items.</strong> Other 8 invisible to "my tasks", inbox, any standard Asana view.</li>
+    </ul>
+  </section>
+
+  <!-- ============== SECTION 2 — HOW WE RESOLVE IT ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">02 · Filter rules</span>
+    </div>
+    <h2>Four rules, applied in order.</h2>
+
+    <ul class="prose">
+      <li>Four deterministic filters on raw Asana data.</li>
+      <li>Remaining candidates handed to the LLM for the final 3–5 selection.</li>
+    </ul>
+
+    <h3>Rule 1 · Read ownership from subtask names</h3>
+    <ul class="prose">
+      <li>Pattern: <span class="mono">↳ (name) to review|approve|sign|check|call|send|look|confirm</span>.</li>
+      <li>When it fires, subtask is owned by the named person — regardless of assignee field.</li>
+      <li>Catches <strong>11 Ryan items</strong> (vs 7 via assignee-only).</li>
+      <li>Verb list is a Notion config DB Ryan edits — not code.</li>
+    </ul>
+
+    <h3>Rule 2 · Drop SOP checklist subtasks</h3>
+    <ul class="prose">
+      <li>Many recurring parents (payroll, BAS, bank rec) have step-by-step subtasks: <span class="mono">↳ Login to Xero</span>, <span class="mono">↳ Click Payrun</span>, <span class="mono">↳ Send Payslips</span>.</li>
+      <li>Instructions, not work. Heuristic: no due date + no assignee + ≥5 sibling subtasks.</li>
+      <li><strong>Drops 914 of 1,022 open subtasks.</strong></li>
+      <li>Rule 1 runs first — ownership-tagged subtasks are exempt.</li>
+    </ul>
+
+    <h3>Rule 3 · Drop tasks &gt;90 days overdue</h3>
+    <ul class="prose">
+      <li>Treated as uncleaned workspace cruft. Dropped silently — not surfaced anywhere.</li>
+      <li>Catches <strong>6 items</strong> today, including a Jan 9 "Ryan to review" on Podia payroll (104 days).</li>
+      <li>Ryan can clean them up in Asana directly if he wants.</li>
+    </ul>
+
+    <h3>Rule 4 · Roll up person × project clusters</h3>
+    <ul class="prose">
+      <li>One assignee · ≥10 overdue · concentrated on 1–2 clients → one line.</li>
+      <li>Today: <strong>Vaishnavi · 29 overdue on EMPAC → single line</strong> with click-through.</li>
+      <li>29 rows would drown the view; "EMPAC backlog, 29 items on Vaishnavi" is the actual signal.</li>
+    </ul>
+
+    <h3>Then the LLM ranks</h3>
+    <ul class="prose">
+      <li><strong>~30 Asana candidates + 14 email triage + 1 commitment = ~45 pooled.</strong></li>
+      <li>LLM ranks across channels — email items can outrank Asana items.</li>
+      <li>Picks 3–5 lines.</li>
+      <li>Same pattern as the email triage playbook already running daily.</li>
+    </ul>
+  </section>
+
+  <!-- ============== SECTION 3 — MOCKUP ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">03 · Output</span>
+    </div>
+    <h2>What Ryan sees each morning.</h2>
+    <ul class="prose">
+      <li>Urgent callout · 3–5 prioritised items · yesterday's wins ticked off.</li>
+      <li><strong>Items mixed across email and Asana</strong> — 📧 / 📋 prefix shows channel origin.</li>
+      <li>Every item below drawn from the live 23 April scan and this morning's triage output.</li>
+    </ul>
+
+    <div class="mockup-frame">
+      <div class="mockup-chrome">
+        <span class="dot" style="background:#FF6058;"></span>
+        <span class="dot" style="background:#FFBD2D;"></span>
+        <span class="dot" style="background:#28C940;"></span>
+        <span class="chrome-title">notion.so / Ryan's Workspace</span>
+      </div>
+      <div class="mockup">
+
+        <!-- Section title -->
+        <div class="focus-head">
+          <div class="focus-title">🎯 Today's Focus</div>
+          <div class="focus-meta">refreshed 08:03 AEST · next 16:00</div>
+        </div>
+
+        <!-- Urgent callout -->
+        <div class="urgent">
+          ⚠️ <strong>Amber chased 3× on Kering this morning. 5 reviews still sitting on you.</strong>
+        </div>
+
+        <!-- Checklist -->
+        <ul class="focus-list todo">
+          <li>
+            <span class="check"></span>
+            <span class="pri">🔴</span>
+            <div>
+              <div class="item-title"><a href="https://mail.google.com/mail/u/0/#inbox/FMfcgzGxTJXkering234567" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(36,19,95,0.18);">📧 EMPAC / Kering — reply to Amber on Ben Masson deduction</a></div>
+              <div class="item-context">
+                Third chase today. Previous two went unanswered Monday and Tuesday. She needs the deduction split for Ben's final payslip before the Kering month-end close. <span class="src">→ email · escalation</span>
+              </div>
+              <div class="item-rel">Amber's tone shifted yesterday — this one's about the relationship as much as the number. Quick reply recovers it; silence costs trust.</div>
+            </div>
+          </li>
+          <li>
+            <span class="check"></span>
+            <span class="pri">🔴</span>
+            <div>
+              <div class="item-title"><a href="https://app.asana.com/search?q=Ryan+to+review" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(36,19,95,0.18);">📋 Clear 5 review subtasks</a></div>
+              <div class="item-context">
+                Those Architects (×3 — Apr 10, Apr 21 ×2), Hudson (Apr 22), EMPAC (Apr 22), Black Market (Apr 15). All "Ryan to review" subtasks under Q-BAS, tax planning, and due-diligence parents. Anvita owns 3 of them. <span class="src">→ asana · 5 subtasks</span>
+              </div>
+              <div class="item-rel">Anvita has flagged she's waiting on these — last Slack message Tuesday.</div>
+            </div>
+          </li>
+          <li>
+            <span class="check"></span>
+            <span class="pri">🔴</span>
+            <div>
+              <div class="item-title"><a href="https://app.asana.com/0/1205678901234/1207890123456789" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(36,19,95,0.18);">📋 GRINHAM tax plan — 3 days overdue</a></div>
+              <div class="item-context">
+                H&amp;E project · "Tax plan and upcoming cashflows for tax payments" · assigned to you · due Apr 20, no movement since. <span class="src">→ asana</span>
+              </div>
+              <div class="item-rel">Glenn's ATO instalment plan kicks in 28 Apr — this needs to land before that conversation.</div>
+            </div>
+          </li>
+          <li>
+            <span class="check"></span>
+            <span class="pri">🟡</span>
+            <div>
+              <div class="item-title"><a href="https://app.asana.com/0/1203456789012/list" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(36,19,95,0.18);">📋 Check in with Vaishnavi — EMPAC backlog</a></div>
+              <div class="item-context">
+                29 overdue items going back to Mar 20: weekly payrolls, daily bank recs, Lightyear processing, March BAS, Jan + Feb management reports. <span class="src">→ asana · cluster</span>
+              </div>
+              <div class="item-rel">She was active until 18:42 last night — likely slammed, not stuck. 10-min Slack check-in beats a meeting.</div>
+            </div>
+          </li>
+          <li>
+            <span class="check"></span>
+            <span class="pri">🟡</span>
+            <div>
+              <div class="item-title"><a href="https://mail.google.com/mail/u/0/#inbox/FMfcgzGxSpodiabas998" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(36,19,95,0.18);">📧 Podia — issue March BAS for signing</a></div>
+              <div class="item-context">
+                Cameron approved yesterday. Draft sits in Podia DMS ready to send. 5-min action, unblocks Friday's cashflow review with him. <span class="src">→ email · ready-to-action</span>
+              </div>
+            </div>
+          </li>
+          <li class="done">
+            <span class="check done"></span>
+            <span class="pri">✓</span>
+            <div>
+              <div class="item-title">Approved EMPAC fortnightly payroll · Katie / Phil / David / Danika</div>
+              <div class="item-context">Yesterday 16:18.</div>
+            </div>
+          </li>
+          <li class="done">
+            <span class="check done"></span>
+            <span class="pri">✓</span>
+            <div>
+              <div class="item-title">Confirmed H&amp;E weekly cashflow review with Sailesh</div>
+              <div class="item-context">Yesterday 11:02.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="focus-footer">
+          scanned 786 open tasks · 1,022 open subtasks · dropped 914 SOP checklist items · dropped 6 items &gt;90d overdue · read 14 email triage items<br>
+          run_id <span style="color:var(--green-d);">tf_2026-04-23_0803</span> · sources: Asana · Email Triage · Commitments · Interaction Log
+        </div>
+      </div>
+    </div>
+
+    <ul class="prose">
+      <li><strong>Urgent callout</strong> = highest-priority item for the day.</li>
+      <li><strong>Every item is clickable</strong> — Asana items open the underlying task, email items open the Gmail thread.</li>
+      <li><strong>Notion to-do blocks</strong> so every item is tickable from the page.</li>
+      <li><strong>Yesterday's completions at the bottom.</strong></li>
+      <li><strong>Italic "→" line</strong> pulled from the Interaction Log — most-recent contact, last-active timestamp, or similar context per item.</li>
+      <li><strong>📧 / 📋 prefix</strong> shows channel origin.</li>
+      <li>Of 14 triage items today, 2 made Today's Focus (Kering escalation, Podia BAS). Other 12 stay in the triage block.</li>
+    </ul>
+  </section>
+
+  <!-- ============== SECTION 4 — PIPELINE ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">04 · Pipeline</span>
+    </div>
+    <h2>Filter pipeline.</h2>
+
+    <div class="pipeline">
+      <div class="pipe-row">
+        <div class="pipe-num">1</div>
+        <div>
+          <div class="pipe-title">Pull from sources</div>
+          <div class="pipe-body">Asana tasks + subtasks across Ryan's 10 projects · 14 items from this morning's email triage run · commitments due today.</div>
+        </div>
+        <div class="pipe-stat">786 + 1,022<br><span class="arrow">+ 14 email</span></div>
+      </div>
+
+      <div class="pipe-row">
+        <div class="pipe-num">2</div>
+        <div>
+          <div class="pipe-title">Detect ownership by name pattern (Rule 1)</div>
+          <div class="pipe-body">Tag every subtask whose name matches <span class="mono">↳ X to review|approve|...</span> with the owner from the name. These are signals; they bypass the SOP filter so they can't be dropped.</div>
+        </div>
+        <div class="pipe-stat">+10 Ryan<br><span class="arrow">signals</span></div>
+      </div>
+
+      <div class="pipe-row">
+        <div class="pipe-num">3</div>
+        <div>
+          <div class="pipe-title">Drop tasks &gt;90 days overdue (Rule 3)</div>
+          <div class="pipe-body">Anything older is treated as uncleaned. Not surfaced anywhere. Includes 1 of the 11 raw Ryan-pattern matches (the Podia Jan 9 subtask).</div>
+        </div>
+        <div class="pipe-stat">−6<br><span class="arrow">uncleaned</span></div>
+      </div>
+
+      <div class="pipe-row">
+        <div class="pipe-num">4</div>
+        <div>
+          <div class="pipe-title">Drop SOP checklist subtasks (Rule 2)</div>
+          <div class="pipe-body">No due date + no assignee + ≥5 siblings + not flagged as ownership signal in stage 2.</div>
+        </div>
+        <div class="pipe-stat">−914<br><span class="arrow">SOP steps</span></div>
+      </div>
+
+      <div class="pipe-row">
+        <div class="pipe-num">5</div>
+        <div>
+          <div class="pipe-title">Roll up person × project clusters (Rule 4)</div>
+          <div class="pipe-body">Same assignee, ≥10 overdue, concentrated on 1–2 clients → one line. Saves the LLM from listing 29 EMPAC items.</div>
+        </div>
+        <div class="pipe-stat">~30 Asana<br><span class="arrow">candidates</span></div>
+      </div>
+
+      <div class="pipe-row llm">
+        <div class="pipe-num">6</div>
+        <div>
+          <div class="pipe-title">LLM ranks cross-channel &amp; renders</div>
+          <div class="pipe-body">~45 pooled candidates (30 Asana + 14 email + 1 commitment) → Claude picks 3–5 across channels · tags each with 📧 / 📋 · writes to Ryan's Notion block. Same pattern as email triage (live today).</div>
+        </div>
+        <div class="pipe-stat" style="color:var(--green-d);">3–5<br><span class="arrow">lines out</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SECTION 5 — SOURCES ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">05 · Sources</span>
+    </div>
+    <h2>Data sources.</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:24%;">Source</th>
+          <th>What we pull</th>
+          <th style="width:22%;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Asana</strong></td>
+          <td>Tasks + subtasks across Ryan's 10 projects, window <span class="mono">[today−7d, today+3d]</span>. Pulled live on 23 April — see findings above.</td>
+          <td><span class="tag new">New connector</span><br><span style="font-size:12px;color:var(--ink-3);">OAuth working, MCP needs wiring</span></td>
+        </tr>
+        <tr>
+          <td><strong>Notion · Email Triage</strong></td>
+          <td>All items surfaced by this morning's triage run (14 today, typically 10–20/day). LLM classifies each as today-vs-this-week. <strong>Today:</strong> escalation / response-expected / ready-to-action. <strong>This week:</strong> policy updates, recurring volume, new-setup.</td>
+          <td><span class="tag live">Live</span><br><span style="font-size:12px;color:var(--ink-3);">Iter 1 · running daily</span></td>
+        </tr>
+        <tr>
+          <td><strong>Notion · Commitments</strong></td>
+          <td>Open commitments due today.</td>
+          <td><span class="tag live">Live</span><br><span style="font-size:12px;color:var(--ink-3);">Iter 0 · DB exists</span></td>
+        </tr>
+        <tr>
+          <td><strong>Notion · Client Register</strong></td>
+          <td>The AM resolver — filtered to Ryan's portfolio.</td>
+          <td><span class="tag live">Live</span><br><span style="font-size:12px;color:var(--ink-3);">Iter 0 · DB exists</span></td>
+        </tr>
+        <tr>
+          <td><strong>Notion · Interaction Log</strong></td>
+          <td>Per-client signals that became the inline italic "→" lines: most-recent contact, tone, conversational openers, decision flags. Looked up for each surfaced item.</td>
+          <td><span class="tag live">Live</span><br><span style="font-size:12px;color:var(--ink-3);">DB exists · enrichment improves with use</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============== SECTION 6 — HOW IT WORKS ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">06 · How it runs</span>
+    </div>
+    <h2>Integration model and a walkthrough.</h2>
+
+    <ul class="prose">
+      <li>What the playbook depends on.</li>
+      <li>How it talks to Notion and Asana.</li>
+      <li>One real 06:00 run using 23 April data.</li>
+    </ul>
+
+    <h3 style="margin-top:28px;">A · Integration model</h3>
+
+    <ul class="prose">
+      <li>Runtime: <strong>Cowork</strong> (Anthropic's agentic runtime). Hosts the schedule, runs Claude calls, talks to externals through MCP connectors.</li>
+      <li>No backend service. No Postgres. No Lambda. No cron server.</li>
+      <li>If Cowork is up, the playbook runs.</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%;">System</th>
+          <th style="width:18%;">MCP connector</th>
+          <th style="width:24%;">Auth</th>
+          <th>What it does on each run</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Asana</strong></td>
+          <td><span class="mono">asana-mcp</span></td>
+          <td>OAuth on Floyd's account · 1-hour access token, refresh token persisted in Cowork secrets</td>
+          <td>Reads tasks + subtasks across Ryan's 10 projects (~118 API calls per run, well under Asana's 1,500/min limit)</td>
+        </tr>
+        <tr>
+          <td><strong>Notion</strong></td>
+          <td><span class="mono">notion-mcp</span></td>
+          <td>Notion integration token (the same one Iter 1 already uses)</td>
+          <td>Reads config DBs (verb list, assignee map, Client Register) · reads data DBs (<strong>Email Triage — all of today's items, not just red</strong>, Commitments, Interaction Log) · writes the output blocks · writes Run Log summary · writes Decision Log rows (one per candidate, ~45/run)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul class="prose" style="margin-top:14px;">
+      <li>Same MCP layer already runs email triage (live since Iter 1). Today's Focus is a second playbook on the same runtime.</li>
+      <li>Triage runs 07:50 → writes Email Triage DB. Today's Focus runs at 08:00 and 16:00 → reads that DB → picks items that need today.</li>
+      <li>Today: triage surfaced 14. Today's Focus picked 2 (Kering escalation, Podia BAS). Other 12 stay in the triage block.</li>
+    </ul>
+
+    <h3>B · Notion write pattern</h3>
+
+    <ul class="prose">
+      <li>Writes to <strong>one Notion page only</strong>: Ryan's Workspace (page ID <span class="mono">3458c003888081c5988cdf589d9d7ce2</span>, already used for the email triage block).</li>
+      <li>Never creates pages. Never modifies databases. Touches one specific block on one page.</li>
+    </ul>
+
+    <div class="integration-note">
+      <ul class="prose" style="margin:0;">
+        <li><strong>Marker-block pattern:</strong> heading block "🎯 Today's Focus" on Ryan's workspace page. Found by ID each run (cached after first lookup).</li>
+        <li><strong>Write:</strong> one call — <span class="mono">PATCH /v1/blocks/{marker_id}/children</span> — atomically replaces all child blocks.</li>
+        <li><strong>Crash-safe:</strong> commits fully or not at all. No half-rendered state.</li>
+        <li><strong>Failure mode:</strong> yesterday's render stays until the next successful run.</li>
+        <li><strong>Scope:</strong> other blocks on the page (Email Triage, Ryan's notes) untouched.</li>
+      </ul>
+    </div>
+
+    <h3>C · Walkthrough</h3>
+    <ul class="prose">
+      <li>Walkthrough below is the <strong>08:00 run</strong> on Thursday 23 April 2026 · live data · total elapsed ~3m 20s.</li>
+      <li>A second run fires at 16:00 with the same shape — re-reads Asana + triage, re-ranks against what's already been ticked off since morning.</li>
+    </ul>
+
+    <div class="steps">
+
+      <div class="step phase-marker"><span class="phase-label">Read phase · 30 seconds</span></div>
+
+      <div class="step">
+        <span class="ts">07:55:00</span>
+        <div class="body">
+          <div class="h">Token refresh</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>Wake 5 min before trigger.</li>
+            <li>Decode cached Asana JWT <span class="mono">exp</span> — expired ~16h ago.</li>
+            <li>POST <span class="api">https://app.asana.com/-/oauth_token</span> with <span class="mono">grant_type=refresh_token</span>.</li>
+            <li>Persist new 1-hour token. <strong>Verified in the 23 Apr test run.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:00:00</span>
+        <div class="body">
+          <div class="h">Read config from Notion</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>Client Register → 10 projects with Asana gids (filter <span class="mono">AM = Ryan Garvey</span>).</li>
+            <li>Verb list → <span class="mono">[review, approve, sign, check, call, send, look, confirm]</span>.</li>
+            <li>Assignee normalization → <span class="mono">{"Gayathri": "Gayathri Medishetti"}</span>.</li>
+            <li><strong>3 Notion calls.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:00:05</span>
+        <div class="body">
+          <div class="h">Pull Asana</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>For each of 10 projects: <span class="api">GET /projects/{gid}/tasks?completed_since=now</span> → 786 parents.</li>
+            <li>For ~108 parents in due window <span class="mono">[today−7d, today+3d]</span>: <span class="api">GET /tasks/{gid}/subtasks</span> → 1,022 subtasks.</li>
+            <li><strong>118 Asana calls in ~20s.</strong> Rate limit 1,500/min — at 8% of cap.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:00:30</span>
+        <div class="body">
+          <div class="h">Pull the rest</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>Email Triage DB <span class="mono">Run_Date=today</span> → <strong>14 items</strong> with urgency, client, summary.</li>
+            <li>Commitments DB <span class="mono">AM=Ryan AND Due≤today</span> → 1 item.</li>
+            <li>Interaction Log (30 days, 10 projects) → 47 entries, cached for enrichment step.</li>
+            <li><strong>3 Notion calls.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step phase-marker"><span class="phase-label">Filter phase · in-process, no API calls</span></div>
+
+      <div class="step">
+        <span class="ts">08:01:00</span>
+        <div class="body">
+          <div class="h">Apply rules 1–4</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>In-memory, no external calls.</li>
+            <li><strong>Rule 1:</strong> scan 1,022 subtask names against verb list → <strong>11 Ryan-pattern matches</strong>.</li>
+            <li><strong>Rule 3</strong> (before SOP drop): drop 6 items &gt;90d overdue (1 was a Ryan-pattern) → 10 Ryan signals survive.</li>
+            <li><strong>Rule 2:</strong> drop 914 SOP checklist subtasks.</li>
+            <li><strong>Rule 4:</strong> cluster forms — Vaishnavi/EMPAC, 29 items → 1 line.</li>
+            <li><strong>Output: ~45 candidates pooled.</strong> Asana (~30): Ryan-signals (10) + assignee parents (2) + high-urgency (~12) + cluster (1) + context (~5). Plus 14 email + 1 commitment.</li>
+            <li>Each candidate carries its channel tag → LLM emits 📧 / 📋 on output.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step phase-marker"><span class="phase-label">Rank phase · ~45 seconds, one Claude call</span></div>
+
+      <div class="step">
+        <span class="ts">08:02:00</span>
+        <div class="body">
+          <div class="h">LLM ranks ~45 → 5 lines</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>One Claude Sonnet 4.6 call via Cowork.</li>
+            <li><strong>Inputs:</strong> ~45 cross-channel candidates with full context · past 7 days of Run Logs (so it doesn't re-flag the same issue daily).</li>
+            <li><strong>Instruction:</strong> pick 3–5 things Ryan needs today across Asana, email triage, commitments. Prefer items that won't move without him. Classify emails: escalation / response-expected / ready-to-action → today; policy / volume / new-setup → this week (don't surface). Prefix each output with 📧 / 📋. Roll up multiples.</li>
+            <li><strong>Returns:</strong> 5 ranked items as JSON <span class="mono">{title, priority, body, source_links, channel}</span> + 2 completed-yesterday items from Asana's modification log.</li>
+            <li><strong>Size:</strong> ~15K input + ~600 output tokens.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:02:30</span>
+        <div class="body">
+          <div class="h">Enrich with relationship context</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>For each surfaced item, query Interaction Log (cached from step 4) for most recent entry.</li>
+            <li><strong>5 Notion calls.</strong></li>
+            <li>Returns italic "→" lines: Amber's tone shift on Kering, Anvita's Slack mention on reviews, Glenn's ATO instalment date, Vaishnavi's last-active timestamp.</li>
+            <li>The Podia BAS item has no relationship signal — no italic line rendered.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step phase-marker"><span class="phase-label">Write phase · 1 atomic Notion call</span></div>
+
+      <div class="step">
+        <span class="ts">08:03:00</span>
+        <div class="body">
+          <div class="h">Render the Notion blocks</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>1× callout (urgent) · 1× heading ("🎯 Today's Focus").</li>
+            <li>5× to-do blocks (priority emoji + bold title + body).</li>
+            <li>4× italic relationship lines (Podia BAS has none).</li>
+            <li>2× checked to-do (yesterday's wins).</li>
+            <li>1× quote (run_id + source list footer).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:03:15</span>
+        <div class="body">
+          <div class="h">Atomic write to Notion</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>One call: <span class="api">PATCH /v1/blocks/{marker_block_id}/children</span>.</li>
+            <li>Notion atomically replaces the marker block's children.</li>
+            <li>On failure, Ryan keeps yesterday's render until next run.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:03:20</span>
+        <div class="body">
+          <div class="h">Log the run + every decision</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>Append one summary row to <strong>Run Log DB</strong>.</li>
+            <li><span class="mono">run_id=tf_2026-04-23_0803, raw_pulled=786+1022, sop_dropped=914, overdue_dropped=6, ryan_signals_kept=10, email_pulled=14, candidates=45, surfaced=5, llm_tokens=15K, runtime=3m 17s, status=success</span>.</li>
+            <li>Append ~45 rows to <strong>Decision Log DB</strong> — one per candidate. Each row captures channel, matched rule, surfaced (Y/N), priority, and the LLM's reasoning.</li>
+            <li>Both DBs are Ryan-visible and queryable.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="ts">08:05:00</span>
+        <div class="body">
+          <div class="h">Ryan opens his page</div>
+          <ul class="prose" style="margin:4px 0 0;">
+            <li>Notion renders the new block on page-load.</li>
+            <li>Ryan reads, ticks items.</li>
+            <li>Playbook wakes again at 16:00 for the afternoon refresh, then 08:00 tomorrow.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <ul class="prose" style="margin-top:14px;">
+      <li><strong>Per-run calls:</strong> 118 Asana + ~55 Notion (incl. ~45 decision-log writes) + 1 Claude = ~174.</li>
+      <li><strong>Daily total:</strong> ~348 calls across the 08:00 and 16:00 runs.</li>
+      <li>Well within free-tier limits on every platform.</li>
+    </ul>
+
+    <h3 style="margin-top:28px;">D · Decision log</h3>
+
+    <ul class="prose">
+      <li>Two Notion DBs written per run.</li>
+      <li><strong>Run Log DB</strong> — one row per run. Totals: raw pulled, rules dropped, candidates, surfaced, tokens, runtime, status.</li>
+      <li><strong>Decision Log DB</strong> — one row per candidate considered. Fields: <span class="mono">run_id, candidate_id, channel, source_title, source_link, matched_rule, priority, surfaced (Y/N), llm_reasoning, run_timestamp</span>.</li>
+      <li>Answers "why didn't X show up?" — query the Decision Log, find the candidate, see which rule dropped it or how the LLM ranked it.</li>
+      <li>Ryan-visible in Notion. Filterable by client, by run date, by surfaced / not-surfaced.</li>
+      <li>Feeds the tuning loop — change a verb or threshold, re-run against the same window, see what flips.</li>
+      <li>Retention: 90 days rolling · old rows auto-archive.</li>
+    </ul>
+  </section>
+
+  <!-- ============== SECTION 7 — BUILD PLAN ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">07 · Build plan</span>
+    </div>
+    <h2>Two weeks. Four phases.</h2>
+
+    <ul class="prose">
+      <li>Whitecrow does the engineering.</li>
+      <li>Ryan: ~2 hours total (day-1 mapping call · Fri wk-1 review · 5-min daily Slack in wk 2).</li>
+      <li>Each phase ships something concrete by Friday.</li>
+    </ul>
+
+    <div class="phases">
+
+      <div class="phase">
+        <div class="phase-tag">Phase 1 · Groundwork<span class="days">Mon–Wed · wk 1</span></div>
+        <div class="phase-body">
+          <p><span class="lbl">Lead</span>Whitecrow + 30-min mapping call with Ryan</p>
+          <ul class="prose" style="margin:6px 0 0;">
+            <li><span class="lbl">Build</span>Asana → Client Register mapping confirmed (10 projects walked through with Ryan).</li>
+            <li>Assignee normalization map + verb list built as Notion config DBs Ryan can edit.</li>
+            <li>Asana MCP connector wired into Cowork.</li>
+          </ul>
+          <p class="ships" style="margin-top:8px;"><span class="lbl">Ships Wed</span>Cold pull running in dev · scan output as JSON · no Notion writes</p>
+        </div>
+      </div>
+
+      <div class="phase checkpoint">
+        <div class="phase-tag">Phase 2 · Filter pipeline<span class="days">Thu–Fri · wk 1</span></div>
+        <div class="phase-body">
+          <p><span class="lbl">Lead</span>Whitecrow</p>
+          <ul class="prose" style="margin:6px 0 0;">
+            <li><span class="lbl">Build</span>Rules 1–4 implemented against the live scan.</li>
+            <li>Output writes to a <strong>sandbox Notion page</strong> (not Ryan's workspace).</li>
+            <li>Run Log row captures stage-by-stage counts for review.</li>
+          </ul>
+          <p class="ships" style="margin-top:8px;"><span class="lbl">Ships Fri AM</span>Sandbox page showing ~30 Asana candidates from today's data, fully filtered, plus the run log</p>
+          <p class="checkpoint-line"><strong>⚑ Go / no-go · Fri 5pm wk 1</strong> · Ryan + Sam review the sandbox output. Filter logic right? Verb patterns missing? Any cluster that shouldn't be? Tune here, not in week 2.</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-tag">Phase 3 · Renderer + ranker<span class="days">Mon–Wed · wk 2</span></div>
+        <div class="phase-body">
+          <p><span class="lbl">Lead</span>Whitecrow</p>
+          <ul class="prose" style="margin:6px 0 0;">
+            <li><span class="lbl">Build</span>LLM ranker + Email Triage DB read integrated.</li>
+            <li>Notion renderer producing §03 format: greeting · callout · checklist · completed tail.</li>
+            <li>Interaction Log lookup wired in for italic "→" lines.</li>
+            <li>Marker-block pattern from §06B implemented.</li>
+          </ul>
+          <p class="ships" style="margin-top:8px;"><span class="lbl">Ships Wed</span>Full-format output rendering to the sandbox page, identical to what Ryan will see live</p>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-tag">Phase 4 · Go live + tune<span class="days">Thu–Fri · wk 2</span></div>
+        <div class="phase-body">
+          <p><span class="lbl">Lead</span>Whitecrow + Ryan opens daily</p>
+          <ul class="prose" style="margin:6px 0 0;">
+            <li><span class="lbl">Build</span>Switch render target from sandbox to Ryan's workspace.</li>
+            <li>Schedule the 08:00 and 16:00 AEST triggers live.</li>
+            <li>Daily 5-min Slack with Ryan on what was wrong / missing / over-surfaced.</li>
+            <li>Whitecrow tunes verb list, filter thresholds, renderer copy from his flags.</li>
+          </ul>
+          <p class="ships" style="margin-top:8px;"><span class="lbl">Ships Fri</span>Runs unattended every morning · Ryan owns the format from there · verb-list + assignee-map handed over as Notion DBs Ryan can edit</p>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="margin-top:28px;">Effort</h3>
+    <div class="totals">
+      <div>
+        <div class="label">Total engineering</div>
+        <div class="value"><strong>~40 hours</strong> over 2 weeks</div>
+      </div>
+    </div>
+    <ul class="prose" style="margin-top:10px;">
+      <li><strong>Splits:</strong> P1 ~10h · P2 ~10h · P3 ~12h · P4 ~8h.</li>
+    </ul>
+  </section>
+
+  <!-- ============== SECTION 8 — NEXT STEPS ============== -->
+  <section>
+    <div class="section-eyebrow">
+      <span class="gbar"></span>
+      <span class="eyebrow">08 · Next steps</span>
+    </div>
+    <h2>Next steps.</h2>
+
+    <ul class="prose">
+      <li><strong>Daily Slack check-in</strong> — we auto-DM Ryan each evening asking whether the day's two roll-ups (8am + 4pm) were effective. His response tunes verb list, cluster thresholds, prompt copy until the format is stable (~2 weeks).</li>
+    </ul>
+
+    <h3 style="margin-top:28px;">The iteration roadmap</h3>
+
+    <ul class="prose">
+      <li><strong>Iteration 3 · 21-Day Lookahead</strong> — extend this pipeline forward 21 days. Layer in Google Calendar ABMs (<span class="mono">[Client] - Monthly Advisory Board Meeting</span>, booked by sandra@). Output to a 📅 Lookahead section below Today's Focus.</li>
+      <li><strong>Iteration 4 · Missing from Asana</strong> — for each active client, check whether expected monthly deliverables (Management Report, BAS, Payroll, etc.) have tasks in Asana for the current month. If not → flag. Requires an expected-task-per-client model.</li>
+      <li><strong>Iteration 5 · Operational risks + Manoli's workspace</strong> — narrative layer (public holidays vs ABMs, offshore capacity flags, pattern detection). Once Ryan's workspace is proven, clone the pattern for Manoli — change the AM filter on the views.</li>
+      <li><strong>Iteration 6+ · Client Workspaces (internal)</strong> — one Notion page per active client. Rolls up every DB filtered to that client. Meeting log + rolling actions become first-class citizens. Used by delivery team, offshore, AMs.</li>
+      <li><strong>Iteration 7+ · External client portals</strong> — published per-client surfaces. Strict isolation. Requires the security model.</li>
+      <li><strong>Iteration 8+ · Xero / XPM / NowInfinity sync</strong> — bookkeeping hygiene metrics from Xero. Contact sync from XPM. Entity register sync from NowInfinity / ASIC. Each additive — no destructive overwrite.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div>Whitecrow.com · Prepared for Sam Musgrave, Nine Advisory · Built from the live 23 April Asana scan</div>
+    <div>v18 · 23 April 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
